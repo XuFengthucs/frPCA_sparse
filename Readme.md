@@ -1,4 +1,4 @@
-# Programs of fast SVT algorithm
+# Programs of fast randomzied PCA algorithm for sparse data
 ---
 
 ##1.Main algorithms
