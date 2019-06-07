@@ -6,7 +6,7 @@
 
 2.matlab/frPCA.m ---- the algorithm used for fast randomized PCA for sparse data in [1] implemented by Matlab, and the parameter mode is used for the different size of the initial data matrix
 
-3.matlab/frpca.c ---- the frPCA and frPCAt algorithms in [1] which is implemented with ICC and OpenMP, the basic rPCA in [2] is included in the file. 
+3.icc/frpca.c ---- the frPCA and frPCAt algorithms in [1] which is implemented with ICC and OpenMP, the basic rPCA in [2] is included in the file. 
 
 ##2.Experiments of testing
 
@@ -18,7 +18,7 @@
 
 ##Rederence
 
-[1] Xu Feng, Yuyang Xie, and Yaohang Li, "Fast Randomzied PCA for Sparse Data," in Proc. the 10th Asian Conference on Machine Learning (ACML), Beijing, China, Nov. 2018 (accepted).
+[1] Xu Feng, Yuyang Xie, and Yaohang Li, "Fast Randomzied PCA for Sparse Data," in Proc. the 10th Asian Conference on Machine Learning (ACML), Beijing, China, Nov. 2018.
 
 [2] N Halko, P. G Martinsson, and J. A Tropp. Finding structure with randomness: Probabilistic algorithms for constructing approximate matrix decompositions. Siam Review, 53(2):217-288, 2011. 
 
