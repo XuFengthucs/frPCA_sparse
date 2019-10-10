@@ -52,7 +52,9 @@ void eigSVD(mat* A, mat **U, mat **S, mat **V)
                 V1->d[i*V1->nrows+j] /= (*S)->d[i];
         }
     }
-    matrix_matrix_mult(A, V1, (*U));
+    mat *Uc = matrix_new((*U)->nrows, (*U)->ncols);
+    matrix_matrix_mult(A, V1, Uc);
+    matrix_copy((*U), Uc);
 }
 
 /*[U, S, V] = frSVD(A, k, p)*/
