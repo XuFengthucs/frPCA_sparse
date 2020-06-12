@@ -32,6 +32,7 @@ void LUfraction(mat *A, mat *L)
             }
         }
     }
+    free(ipiv); 
 }
 
 /*[U, S, V] = eigSVD(A)*/
@@ -55,6 +56,8 @@ void eigSVD(mat* A, mat **U, mat **S, mat **V)
     mat *Uc = matrix_new((*U)->nrows, (*U)->ncols);
     matrix_matrix_mult(A, V1, Uc);
     matrix_copy((*U), Uc);
+    matrix_delete(V1);
+    matrix_delete(Uc);
 }
 
 /*[U, S, V] = frSVD(A, k, p)*/
@@ -109,6 +112,11 @@ void frPCAt(mat_csr *A, mat **U, mat **S, mat **V, int k, int q)
     matrix_get_selected_rows(SS, inds, *S);
     matrix_get_selected_columns(VV, inds, VV2);
     matrix_matrix_mult(Qt, VV2, (*V));
+    matrix_delete(Q);
+    matrix_delete(Qt);
+    matrix_delete(SS);
+    matrix_delete(VV);
+    matrix_delete(VV2);
 }
 
 /*[U, S, V] = frSVD(A, k, p)*/
@@ -163,6 +171,12 @@ void frPCA(mat_csr *A, mat **U, mat **S, mat **V, int k, int q)
     matrix_get_selected_rows(SS, inds, *S);
     matrix_get_selected_columns(VV, inds, VV2);
     matrix_matrix_mult(Q, VV2, (*U));
+    matrix_delete(Q);
+    matrix_delete(Qt);
+    matrix_delete(UU);
+    matrix_delete(SS);
+    matrix_delete(VV);
+    matrix_delete(VV2);
 }
 
 void randQB_basic_csr(mat_csr *M, int k, int p, mat **U, mat **S, mat **V) {
@@ -215,6 +229,14 @@ void randQB_basic_csr(mat_csr *M, int k, int p, mat **U, mat **S, mat **V) {
     matrix_get_selected_columns(VV, inds, (*V));
     matrix_copy_first_k_rows_and_columns(*S, SS);
     
+    
+    matrix_delete(Q);
+    matrix_delete(B);
+    matrix_delete(Vt);
+    matrix_delete(VV);
+    matrix_delete(UU);
+    matrix_delete(UUk);
+    matrix_delete(SS);
     matrix_delete(R);
     
 }

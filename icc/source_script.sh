@@ -1,1 +1,1 @@
-source /opt/intel/bin/iccvars.sh intel64
+source /opt/intel/system_studio_2020/bin/iccvars.sh intel64
