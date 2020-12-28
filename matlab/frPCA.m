@@ -1,6 +1,6 @@
 function [U, S, V] = frPCA(A, k, q, mode)
 % this is the fast randomized PCA for sparse data
-% q is the number of pass over A
+% q is the number of pass over A, q should larger than 1 and q times pass eqauls to (q-2)/2 times power iteration
 % mode = 1 is use the frPCA and mode = 2 is the frPCAt
 s = 5;
 [m, n] = size(A);

@@ -61,12 +61,19 @@ void eigSVD(mat* A, mat **U, mat **S, mat **V)
 }
 
 /*[U, S, V] = frSVD(A, k, p)*/
+/*
+    Parameter q should be larger than 1, and the q times pass equals to (q-2)/2 times power iteration.
+*/
 void frPCAt(mat_csr *A, mat **U, mat **S, mat **V, int k, int q)
 {
-    int s = 5;    
+    if (q == 1)
+    {
+       printf("Pass parameter q should be large than 1\n!");
+       return;
+    }
+    int s = 5; 
     mat *Q = matrix_new(A->nrows, k+s);
     mat *Qt = matrix_new(A->ncols, k+s);
-    //mat *UU = matrix_new(A->nrows, k+s);
     mat *SS = matrix_new(k+s, 1);
     mat *VV = matrix_new(k+s, k+s);
     if(q%2 == 0)
@@ -120,8 +127,16 @@ void frPCAt(mat_csr *A, mat **U, mat **S, mat **V, int k, int q)
 }
 
 /*[U, S, V] = frSVD(A, k, p)*/
+/*
+    Parameter q should be larger than 1, and the q times pass equals to (q-2)/2 times power iteration.
+*/
 void frPCA(mat_csr *A, mat **U, mat **S, mat **V, int k, int q)
 {
+    if (q == 1)
+    {
+       printf("Pass parameter q should be large than 1!\n");
+       return;
+    }
     int s = 5;    
     mat *Q = matrix_new(A->nrows, k+s);
     mat *Qt = matrix_new(A->ncols, k+s);
