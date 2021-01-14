@@ -1,10 +1,13 @@
-function [U, S, V] = frPCA(A, k, q, mode)
+function [U, S, V] = frPCA(A, k, q)
 % this is the fast randomized PCA for sparse data
 % q is the number of pass over A, q should larger than 1 and q times pass eqauls to (q-2)/2 times power iteration
-% mode = 1 is use the frPCA and mode = 2 is the frPCAt
+if q < 2
+    warning('Pass parameter q must be larger than 1 !');
+    return;
+end
 s = 5;
 [m, n] = size(A);
-if mode == 1
+if m < n
     if rem(q,2) == 0
         Q = randn(n, k+s);
         Q = A*Q;
@@ -29,7 +32,7 @@ if mode == 1
     U = Q*U(:, ind);
     V = V(:, ind);
     S = S(ind);
-elseif mode == 2
+else
     if rem(q,2) == 0
         Q = randn(m, k+s);
         Q = A'*Q;
