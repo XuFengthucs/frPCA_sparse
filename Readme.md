@@ -18,9 +18,11 @@ Programs of fast randomized PCA algorithms for Sparse Data
 
 (1)The ICC compiler or MKL library needs the support of Intel MKL [3], and when all the things have been prepared, run "source compile.sh" and choose the compiler ("icc" or "gcc"), then the excutable program will be compiled. The resuled program is an example of testing the dataset SNAP [4].
 
-(2)The SNAP dataset is included in the the icc folder, and the Movielens datasets [5] can be downloaded from the website https://grouplens.org/datasets/movielens/.
+(2)"matlab/test.m" is a working example for frPCA, and compare the results of frPCA and svds. The i-th singular value of the test case is $\sigma_i=1/\sqrt{i}$.
 
-(3)The matrix index should begin with 1 when using those programs, or the reuslts may become false.
+(3)The SNAP dataset is included in the the icc folder, and the Movielens datasets [5] can be downloaded from the website https://grouplens.org/datasets/movielens/.
+
+(4)The matrix index should begin with 1 when using those programs, or the reuslts may become false.
 
 ### Rederence
 
